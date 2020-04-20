@@ -43,8 +43,8 @@ public class MessengerTest {
         
         final String message = "Test";
         final String email = "test@asdf.pl";
-        doReturn(message).when(templateEngine.prepareMessage(template, client));
-        doReturn(email).when(client.getEmail());
+        when(templateEngine.prepareMessage(template, client)).thenReturn(message);
+        when(client.getEmail()).thenReturn(email);
         
         messenger.sendMessage(client, template);
         
